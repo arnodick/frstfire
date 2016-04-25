@@ -115,7 +115,8 @@ function controlmenu(m)
 	end
 
 	if btnp(5) then
-		menus={}
+		--menus={}
+		del(menus,m)
 	end
 end
 
