@@ -1,5 +1,5 @@
 pico-8 cartridge // http://www.pico-8.com
-version 5
+version 7
 __lua__
 --frst fire
 --by ashley pringle
@@ -93,13 +93,14 @@ function controlmenu(m)
 	
 	local ms=1
 	if btn(4) then ms=10 end
-	
-	local butt={-1,1}
-	if btnp(0) or btnp(1) then settings[m.t-1][m.sel][2]+=ms*butt[btnp()]
-		if m.sel==6 then
-			cam[1]=0 cam[2]=0
-		end
+
+	if     btnp(0) then settings[m.t-1][m.sel][2]+=ms*-1
+	elseif btnp(1) then settings[m.t-1][m.sel][2]+=ms*1
 	end
+	if m.sel==6 then
+		cam[1]=0 cam[2]=0
+	end
+
 	settings[m.t-1][m.sel][2]=clampoverflow(settings[m.t-1][m.sel][2],settings[m.t-1][m.sel][3],settings[m.t-1][m.sel][4])
 
 	if m.t==1 then
