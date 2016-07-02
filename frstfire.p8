@@ -1,5 +1,5 @@
 pico-8 cartridge // http://www.pico-8.com
-version 7
+version 8
 __lua__
 --frst fire
 --by ashley pringle
@@ -286,6 +286,7 @@ function state_i(s)
 		tpal={8,9,10}
 		start=0
 	elseif s==2 then
+		settings[0][6][2]=2
 		cellw=8
 		cellh=8
 		mapw=16
@@ -311,6 +312,7 @@ function statedraw(s)
 			end
 		else
 			drawtitle({},64/start*5)
+			print("@ashleypringle",4,56,7)
 		end
 	elseif s==2 then
 		for a=1,2 do
